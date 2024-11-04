@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="emprunt_form_view">
+      <field name="name">emprunt.form.view</field>
+      <field name="model">emprunt</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <group>
+                <field name="date_debut" />
+                <field name="date_fin" />
+              </group>
+              <group>
+                <field name="rendu" />
+              </group>
+              <group>
+                <field name="emprunteur_id" />
+                <field name="empruntas_ids" />
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="emprunt_list_view">
+      <field name="name">emprunt.list.view</field>
+      <field name="model">emprunt</field>
+      <field name="arch" type="xml">
+        <tree editable="top">
+          <field name="date_debut" />
+          <field name="date_fin" />
+          <field name="rendu" />
+          <field name="empruntas_ids" />
+          <field name="emprunteur_id" />
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_emprunt_search">
+      <field name="name">emprunt.search.view</field>
+      <field name="model">emprunt</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="emprunteur_id" />
+          <field name="empruntas_ids" string="Auteur" filter_domain="[('empruntas_ids.livre_id.auteur_ids.nom', 'ilike', self)]" />
+          <group expand="0" string="Group By">
+            <filter name="group_rendu" string="Rendu" icon="terp-partner" context="{'group_by':'rendu'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="emprunt_actions">
+      <field name="name">Emprunts</field>
+      <field name="res_model">emprunt</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_type">form</field>
+      <field name="view_id" ref="emprunt_list_view" />
+      <field name="search_view_id" ref="view_emprunt_search" />
+    </record>
+
+    <menuitem id="gestion_bibliotheque_menu" name="Gestion Bibliotheque" />
+    <menuitem id="emprunt" name="Emprunts" parent="gestion_bibliotheque_menu" action="emprunt_actions" />
+  </data>
+</odoo>

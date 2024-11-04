@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <!-- Form View for Livre
+    <record model="ir.ui.view" id="livre_form_view">
+      <field name="name">livre.form.view</field>
+      <field name="model">livre</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <group>
+                <field name="titre" />
+                <field name="isbn" />
+                <field name="nbre_pages" />
+              </group>
+              <group>
+                <field name="langue_livre" />
+                <field name="auteur_ids" />
+                <field name="image_livre" widget="image" />
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+-->
+    <!-- List View for Livre -->
+    <record model="ir.ui.view" id="livre_list_view">
+      <field name="name">livre.list.view</field>
+      <field name="model">livre</field>
+      <field name="arch" type="xml">
+        <tree editable="top">
+          <field name="titre" />
+          <field name="isbn" />
+          <field name="nbre_pages" />
+          <field name="langue_livre" />
+          <field name="auteur_ids" >
+            <tree editable="top">
+              <field name="nom" />
+              <field name="prenom" />
+            </tree>
+          </field>
+          <field name="image_livre" widget="image" />
+        </tree>
+      </field>
+    </record>
+
+    <!-- Search View for Livre -->
+    <record model="ir.ui.view" id="view_livre_search">
+      <field name="name">livre.search.view</field>
+      <field name="model">livre</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="titre" />
+          <field name="isbn" />
+          <field name="nbre_pages" />
+          <field name="langue_livre" />
+        </search>
+      </field>
+    </record>
+
+    <!-- Action for Livre -->
+    <record model="ir.actions.act_window" id="livre_actions">
+      <field name="name">Livres</field>
+      <field name="res_model">livre</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_type">form</field>
+      <field name="view_id" ref="livre_list_view" />
+      <field name="search_view_id" ref="view_livre_search" />
+    </record>
+
+    <!-- Menu Item for Livre -->
+    <menuitem id="gestion_bibliotheque_menu" name="Gestion Bibliotheque" />
+    <menuitem id="livre" name="Livres" parent="gestion_bibliotheque_menu" action="livre_actions" />
+  </data>
+</odoo>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <!-- TODO -->
+    <!-- Form View for Emprunteur -->
+    <record model="ir.ui.view" id="emprunteur_form_view">
+      <field name="name">emprunteur.form.view</field>
+      <field name="model">emprunteur</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <group>
+                <field name="nom" />
+                <field name="prenom" />
+                <field name="date_naissance" />
+              </group>
+              <group>
+                <field name="state" />
+                <field name="sexe" />
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- List View for Emprunteur -->
+    <record model="ir.ui.view" id="emprunteur_list_view">
+      <field name="name">emprunteur.list.view</field>
+      <field name="model">emprunteur</field>
+      <field name="arch" type="xml">
+        <tree editable="top">
+          <field name="nom" />
+          <field name="prenom" />
+          <field name="date_naissance" />
+          <field name="state" />
+          <field name="sexe" />
+          <field name="nbr_emprunt" />
+        </tree>
+      </field>
+    </record>
+    <!-- Search View for Emprunteur -->
+    <record model="ir.ui.view" id="view_emprunteur_search">
+      <field name="name">emprunteur.search.view</field>
+      <field name="model">emprunteur</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="nom" />
+          <field name="prenom" />
+          <field name="state" />
+        </search>
+      </field>
+    </record>
+    <!-- Action for Emprunteur -->
+    <record model="ir.actions.act_window" id="emprunteur_actions">
+      <field name="name">Emprunteurs</field>
+      <field name="res_model">emprunteur</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_type">form</field>
+      <field name="view_id" ref="emprunteur_list_view" />
+      <field name="search_view_id" ref="view_emprunteur_search" />
+    </record>
+
+    <!-- Menu Item for Emprunteur -->
+    <menuitem id="gestion_bibliotheque_menu" name="Gestion Bibliotheque" />
+    <menuitem id="emprunteur" name="Emprunteurs" parent="gestion_bibliotheque_menu" action="emprunteur_actions" />
+  </data>
+</odoo>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
   <data>
-    <!-- Form View for Livre
     <record model="ir.ui.view" id="livre_form_view">
       <field name="name">livre.form.view</field>
       <field name="model">livre</field>
@@ -24,8 +23,7 @@
         </form>
       </field>
     </record>
--->
-    <!-- List View for Livre -->
+
     <record model="ir.ui.view" id="livre_list_view">
       <field name="name">livre.list.view</field>
       <field name="model">livre</field>
@@ -60,7 +58,6 @@
       </field>
     </record>
 
-    <!-- Action for Livre -->
     <record model="ir.actions.act_window" id="livre_actions">
       <field name="name">Livres</field>
       <field name="res_model">livre</field>
@@ -70,8 +67,7 @@
       <field name="search_view_id" ref="view_livre_search" />
     </record>
 
-    <!-- Menu Item for Livre -->
-    <menuitem id="gestion_bibliotheque_menu" name="Gestion Bibliotheque" />
+$    <menuitem id="gestion_bibliotheque_menu" name="Gestion Bibliotheque" />
     <menuitem id="livre" name="Livres" parent="gestion_bibliotheque_menu" action="livre_actions" />
   </data>
 </odoo>

@@ -17,8 +17,10 @@
               </group>
               <group>
                 <field name="emprunteur_id" />
-                <field name="empruntas_ids" />
               </group>
+              <groupe>
+             <field name="empruntas_ids" />
+              </groupe>
             </group>
           </sheet>
         </form>
@@ -33,8 +35,15 @@
           <field name="date_debut" />
           <field name="date_fin" />
           <field name="rendu" />
-          <field name="empruntas_ids" />
           <field name="emprunteur_id" />
+          <field name="empruntas_ids">
+          <tree editable="top">
+          <field name="isbn"/>
+          <field name="nbre_pages"/>
+          <field name="langue_livre"/>
+          <field name="livre_id"/>
+          </tree>
+          </field>
         </tree>
       </field>
     </record>

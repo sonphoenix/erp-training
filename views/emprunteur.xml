@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
   <data>
-    <!-- TODO -->
-    <!-- Form View for Emprunteur -->
+
     <record model="ir.ui.view" id="emprunteur_form_view">
       <field name="name">emprunteur.form.view</field>
       <field name="model">emprunteur</field>
@@ -25,7 +24,6 @@
       </field>
     </record>
 
-    <!-- List View for Emprunteur -->
     <record model="ir.ui.view" id="emprunteur_list_view">
       <field name="name">emprunteur.list.view</field>
       <field name="model">emprunteur</field>
